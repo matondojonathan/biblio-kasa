@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="BiblioKasa - Système de gestion de bibliothèque">
+
+    <title>BiblioKasa | Tableau de bord</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="font/css/all.css">
+</head>
+
+<body id="top">
+
+    <!-- =========================================
+         APPLICATION
+    ========================================== -->
+    <div class="app">
+
+        <!-- =====================================
+             SIDEBAR
+        ====================================== -->
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar-header">
+
+                <a href="index.html" class="brand" aria-label="BiblioKasa - Accueil">
+                    <img src="assets/images/logo.png" alt="Logo BiblioKasa" class="brand-logo">
+
+                    <span class="brand-mark">
+                        <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+                    </span>
+
+                    <span class="brand-text">
+                        <strong>BiblioKasa</strong>
+                        <small>Gestion de bibliothèque</small>
+                    </span>
+    
+                </a>
+
+            </div>
+
+
+            <!-- Navigation -->
+            <nav class="sidebar-nav" aria-label="Navigation principale">
+
+                <div class="nav-section">
+
+                    <p class="nav-title">
+                        Principal
+                    </p>
+
+                    <a href="index.html" class="nav-link active" aria-current="page">
+
+                        <i class="fa-solid fa-gauge-high nav-icon" aria-hidden="true"></i>
+                        <span>Tableau de bord</span>
+                    </a>
+
+                </div>
+
+
+                <div class="nav-section">
+
+                    <p class="nav-title">Gestion</p>
+
+                    <a href="livres.html" class="nav-link">
+                        <i class="fa-solid fa-book nav-icon" aria-hidden="true"></i>
+                        <span>Livres</span>
+                    </a>
+
+                    <a href="membres.html" class="nav-link">
+                        <i class="fa-solid fa-users nav-icon" aria-hidden="true"></i>
+                        <span>Membres</span>
+                    </a>
+
+                    <a href="emprunts.html" class="nav-link">
+                        <i class="fa-solid fa-arrow-right-arrow-left nav-icon" aria-hidden="true"></i>
+                        <span>Emprunts</span>
+                    </a>
+
+                </div>
+
+                <div class="nav-section">
+                    <p class="nav-title">Administration</p>
+
+                    <a href="admin.html" class="nav-link">
+                        <i class="fa-solid fa-gear nav-icon" aria-hidden="true"></i>
+                        <span>Administration</span>
+                    </a>
+                </div>
+            </nav>
+
+
+            <!-- Statut système -->
+            <div class="sidebar-footer">
+                <div class="sidebar-status">
+
+                    <span class="status-dot" aria-hidden="true"></span>
+
+                    <div>
+                        <strong>Système</strong>
+                        <small id="systemStatus">
+                            Initialisation
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- =====================================
+             CONTENU PRINCIPAL
+        ====================================== -->
+        <main class="main-content">
+            <!-- =================================
+                 TOPBAR
+            ================================== -->
+            <header class="topbar">
+
+                <div class="topbar-left">
+
+                    <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Ouvrir le menu" aria-controls="sidebar" aria-expanded="false">
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                    </button>
+
+                    <div>
+                        <p class="breadcrumb">BiblioKasa / Accueil</p>
+                        <h1>Tableau de bord</h1>
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <!-- Thème -->
+                    <button type="button" class="icon-button theme-toggle" id="themeToggle" aria-label="Changer le thème" title="Changer le thème">
+                    <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
+                    </button>
+
+                    <!-- Notifications -->
+                    <button type="button" class="icon-button" id="notificationBtn" aria-label="Notifications" title="Notifications">
+                    <i class="fa-solid fa-bell" aria-hidden="true"></i>
+                    <span class="notification-badge" id="notificationBadge">0</span>
+                    </button>
+
+                    <!-- Profil -->
+                    <div class="user-profile">
+                        <div class="user-avatar" aria-hidden="true">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+
+                        <div class="user-info">
+                            <strong>Administrateur</strong>
+                            <span>Bibliothécaire</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- =================================
+                 CONTENU
+            ================================== -->
+            <section class="page-content">
+
+                <!-- Présentation -->
+                <div class="page-heading">
+                    <div>
+                        <p class="eyebrow">Vue générale</p>
+                        <h2>Bienvenue sur BiblioKasa</h2>
+                        <p class="page-description">
+                            Gérez les livres, les membres et les emprunts
+                            depuis votre espace de bibliothèque.
+                        </p>
+                    </div>
+
+                    <div class="page-actions">
+                        <a href="emprunts.html" class="btn btn-primary">
+                            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                            <span>Nouvel emprunt</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- =================================
+                     STATISTIQUES
+                ================================== -->
+                <section class="stats-grid" aria-label="Statistiques de la bibliothèque">
+
+                    <!-- Livres -->
+                    <article class="stat-card">
+                        <div class="stat-card-top">
+                            <span class="stat-label">
+                                Total des livres
+                            </span>
+
+                            <span class="stat-icon">
+                                <i class="fa-solid fa-book" aria-hidden="true"></i>
+                            </span>
+                        </div>
+
+                        <div class="stat-value" id="totalLivres">0</div>
+                        <p class="stat-meta">Livres enregistrés</p>
+
+                    </article>
+
+                    <!-- Membres -->
+                    <article class="stat-card">
+                        <div class="stat-card-top">
+                            <span class="stat-label">Membres</span>
+
+                            <span class="stat-icon">
+                                <i class="fa-solid fa-users" aria-hidden="true"></i>
+                            </span>
+
+                        </div>
+                        <div class="stat-value" id="totalMembres">0</div>
+
+                        <p class="stat-meta">
+                            Membres inscrits
+                        </p>
+
+                    </article>
+
+
+                    <!-- Emprunts -->
+                    <article class="stat-card">
+
+                        <div class="stat-card-top">
+
+                            <span class="stat-label">
+                                Emprunts en cours
+                            </span>
+
+                            <span class="stat-icon">
+                                <i
+                                    class="fa-solid fa-arrow-right-arrow-left"
+                                    aria-hidden="true"
+                                ></i>
+                            </span>
+
+                        </div>
+
+                        <div
+                            class="stat-value"
+                            id="totalEmprunts"
+                        >
+                            0
+                        </div>
+
+                        <p class="stat-meta">
+                            Emprunts actuellement actifs
+                        </p>
+
+                    </article>
+
+
+                    <!-- Retards -->
+                    <article class="stat-card">
+
+                        <div class="stat-card-top">
+
+                            <span class="stat-label">
+                                Retards
+                            </span>
+
+                            <span class="stat-icon warning">
+                                <i
+                                    class="fa-solid fa-triangle-exclamation"
+                                    aria-hidden="true"
+                                ></i>
+                            </span>
+
+                        </div>
+
+                        <div
+                            class="stat-value"
+                            id="totalRetards"
+                        >
+                            0
+                        </div>
+
+                        <p class="stat-meta">
+                            Emprunts dépassant la durée prévue
+                        </p>
+
+                    </article>
+
+                </section>
+
+
+                <!-- =================================
+                     CONTENU DASHBOARD
+                ================================== -->
+                <div class="dashboard-grid">
+
+                    <!-- Emprunts récents -->
+                    <section class="content-card">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <p class="eyebrow">
+                                    Activité
+                                </p>
+
+                                <h3>
+                                    Emprunts récents
+                                </h3>
+
+                            </div>
+
+                            <a
+                                href="emprunts.html"
+                                class="card-link"
+                            >
+                                Voir tout
+                            </a>
+
+                        </div>
+
+
+                        <div class="table-wrapper">
+
+                            <table class="data-table">
+
+                                <thead>
+
+                                    <tr>
+                                        <th scope="col">
+                                            Membre
+                                        </th>
+
+                                        <th scope="col">
+                                            Livre
+                                        </th>
+
+                                        <th scope="col">
+                                            Date d'emprunt
+                                        </th>
+
+                                        <th scope="col">
+                                            Échéance
+                                        </th>
+
+                                        <th scope="col">
+                                            Statut
+                                        </th>
+                                    </tr>
+
+                                </thead>
+
+
+                                <tbody id="recentLoans">
+
+                                    <tr class="empty-row">
+
+                                        <td colspan="5">
+
+                                            <div class="empty-state">
+
+                                                <span class="empty-icon">
+                                                    <i
+                                                        class="fa-solid fa-book-open"
+                                                        aria-hidden="true"
+                                                    ></i>
+                                                </span>
+
+                                                <strong>
+                                                    Aucun emprunt à afficher
+                                                </strong>
+
+                                                <span>
+                                                    Les emprunts récents
+                                                    apparaîtront ici.
+                                                </span>
+
+                                            </div>
+
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- Alertes -->
+                    <section class="content-card">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <p class="eyebrow">
+                                    Attention
+                                </p>
+
+                                <h3>
+                                    Alertes
+                                </h3>
+
+                            </div>
+
+                            <span
+                                class="counter-badge"
+                                id="alertCount"
+                            >
+                                0
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="alerts-list"
+                            id="alertsList"
+                        >
+
+                            <div class="alert-item alert-info">
+
+                                <div
+                                    class="alert-icon"
+                                    aria-hidden="true"
+                                >
+                                    <i class="fa-solid fa-circle-info"></i>
+                                </div>
+
+                                <div class="alert-content">
+
+                                    <strong>
+                                        Aucune alerte
+                                    </strong>
+
+                                    <p>
+                                        Les alertes concernant les emprunts
+                                        seront affichées ici.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+
+                <!-- =================================
+                     ACTIONS RAPIDES
+                ================================== -->
+                <section class="content-card quick-actions-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <p class="eyebrow">
+                                Raccourcis
+                            </p>
+
+                            <h3>
+                                Actions rapides
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="quick-actions">
+
+                        <a
+                            href="livres.html"
+                            class="quick-action"
+                        >
+
+                            <span class="quick-action-icon">
+                                <i
+                                    class="fa-solid fa-book"
+                                    aria-hidden="true"
+                                ></i>
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Gérer les livres
+                                </strong>
+
+                                <span>
+                                    Ajouter, modifier ou rechercher
+                                    un livre
+                                </span>
+
+                            </div>
+
+                        </a>
+
+
+                        <a
+                            href="membres.html"
+                            class="quick-action"
+                        >
+
+                            <span class="quick-action-icon">
+                                <i
+                                    class="fa-solid fa-user-plus"
+                                    aria-hidden="true"
+                                ></i>
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Gérer les membres
+                                </strong>
+
+                                <span>
+                                    Consulter et gérer les membres
+                                </span>
+
+                            </div>
+
+                        </a>
+
+
+                        <a
+                            href="emprunts.html"
+                            class="quick-action"
+                        >
+
+                            <span class="quick-action-icon">
+                                <i
+                                    class="fa-solid fa-arrow-right-arrow-left"
+                                    aria-hidden="true"
+                                ></i>
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Gérer les emprunts
+                                </strong>
+
+                                <span>
+                                    Enregistrer un prêt ou un retour
+                                </span>
+
+                            </div>
+
+                        </a>
+
+
+                        <a
+                            href="admin.html"
+                            class="quick-action"
+                        >
+
+                            <span class="quick-action-icon">
+                                <i
+                                    class="fa-solid fa-chart-column"
+                                    aria-hidden="true"
+                                ></i>
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Administration
+                                </strong>
+
+                                <span>
+                                    Consulter les statistiques
+                                </span>
+
+                            </div>
+
+                        </a>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+
+            <!-- =================================
+                 FOOTER
+            ================================== -->
+            <footer class="main-footer">
+
+                <div class="footer-content">
+
+                    <div>
+                        <strong>
+                            BiblioKasa
+                        </strong>
+
+                        <span>
+                            Système de gestion de bibliothèque
+                        </span>
+                    </div>
+
+                    <div>
+                        <span>
+                            © 2026 BiblioKasa
+                        </span>
+
+                        <span>
+                            Akieni Academy • Cohorte 2
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="#top"
+                    class="back-to-top"
+                    aria-label="Retour en haut"
+                    title="Retour en haut"
+                >
+                    <i
+                        class="fa-solid fa-arrow-up"
+                        aria-hidden="true"
+                    ></i>
+                </a>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================================
+         OVERLAY MOBILE
+    ========================================== -->
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+        aria-hidden="true"
+    ></div>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+    <script src="js/app.js"></script>
+
+</body>
+</html>
